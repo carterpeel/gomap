@@ -1,7 +1,6 @@
 package gomap
 
 import (
-	"fmt"
 	"net"
 	"strconv"
 	"time"
@@ -94,8 +93,6 @@ func scanIPPorts(hostname string, laddr string, proto string, fastscan bool, ste
 	// Combines all results from resultChannel and return a IPScanResult
 	for result := range resultChannel {
 		results = append(results, result)
-		fmt.Printf("\033[2K\rHost: %s | Ports Scanned %d/%d", hostname, len(results), tasks)
-
 		if len(results) == tasks {
 			close(resultChannel)
 		}

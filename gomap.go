@@ -14,7 +14,7 @@ type IPScanResult struct {
 	Results  []portResult
 }
 
-// JsonRange contains a slice of of JsonIP results
+// JsonRange contains a slice of JsonIP results
 type JsonRange struct {
 	results []JsonIP
 }

@@ -7,25 +7,12 @@ import (
 	"github.com/JustinTimperio/gomap"
 )
 
-func TestMain(m *testing.M) {
-	var (
-		proto    = "tcp"
-		fastscan = true
-		stealth  = false
-	)
-
-	// results, err := gomap.ScanIP("192.168.1.1", proto, fastscan, stealth)
-	results, err := gomap.ScanRange(proto, fastscan, stealth)
+func TestScanIP(t *testing.T) {
+	results, err := gomap.ScanIP("127.0.0.1", "tcp", false, false)
 	if err != nil {
-		panic(err)
-	} else {
-		fmt.Println(results.String())
+		t.Fatal(err)
 	}
-
-	j, err := results.Json()
-	if err != nil {
-		panic(err)
-	} else {
-		fmt.Println(j)
+	for _, v := range results.Results {
+		fmt.Println(v.Port)
 	}
 }
